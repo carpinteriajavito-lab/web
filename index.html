@@ -1,24 +1,426 @@
 <!DOCTYPE html>
 <html lang="es">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Carpintería JAVITO | Villazón</title>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carpintería JAVITO | Villazón</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}body{font-family:Arial,sans-serif;background:#e7e0e0;color:#333}header{background:#2b1b12;color:white;padding:20px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}.logo{font-size:25px;font-weight:bold;color:#e5b77c}nav{display:flex;flex-wrap:wrap;gap:18px}nav a{color:white;text-decoration:none;font-size:14px}nav a:hover{color:#e5b77c}.inicio{min-height:550px;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url("imagenes/inicio imagen.jpeg") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:white}.inicio h1{font-size:45px;margin-bottom:20px}.inicio p{font-size:19px;margin-bottom:25px;line-height:1.6}.boton{display:inline-block;background:#a66b38;color:white;padding:13px 25px;border-radius:5px;text-decoration:none;border:none;cursor:pointer}.boton:hover{background:#754522}section{padding:65px 7%}.titulo{text-align:center;color:#57351f;font-size:32px;margin-bottom:15px}.descripcion{text-align:center;color:#666;margin-bottom:35px;line-height:1.6}.categorias{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:35px}.categorias button{padding:12px 22px;border:1px solid #8b603e;background:white;color:#57351f;border-radius:5px;cursor:pointer;font-weight:bold}.categorias button:hover,.categorias button.activo{background:#57351f;color:white}.productos{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}.tarjeta{background:white;border-radius:9px;overflow:hidden;box-shadow:0 3px 12px #00000015;transition:.3s}.tarjeta:hover{transform:translateY(-5px)}.tarjeta img{width:100%;height:230px;object-fit:cover;display:block}.tarjeta-contenido{padding:20px}.tarjeta h3{color:#57351f;margin-bottom:10px}.tarjeta p{color:#666;line-height:1.5;margin-bottom:15px}.tarjeta .boton{width:100%;text-align:center}.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.galeria img{width:100%;height:230px;object-fit:cover;border-radius:8px}.nosotros{background:#eee4d7;text-align:center}.nosotros p{max-width:850px;margin:auto;line-height:1.8}.formulario{max-width:650px;margin:auto;background:white;padding:30px;border-radius:10px;box-shadow:0 3px 12px #00000015}.formulario input,.formulario select,.formulario textarea{width:100%;padding:13px;margin:10px 0;border:1px solid #ccc;border-radius:5px;font-size:15px}.formulario textarea{height:110px;resize:vertical}.formulario button{width:100%;font-size:16px}.contacto{background:#eee4d7;text-align:center;line-height:2}footer{background:#382318;color:white;text-align:center;padding:25px}@media(max-width:750px){header{justify-content:center;text-align:center}nav{justify-content:center}.inicio h1{font-size:32px}.productos,.galeria{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.productos,.galeria{grid-template-columns:1fr}}
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#e7e0e0;color:#333}
+header{background:#2b1b12;color:white;padding:20px 7%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.logo{font-size:25px;font-weight:bold;color:#e5b77c}
+nav{display:flex;flex-wrap:wrap;gap:18px}
+nav a{color:white;text-decoration:none;font-size:14px}
+nav a:hover{color:#e5b77c}
+.inicio{min-height:550px;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url("imagenes/inicio imagen.jpeg") center/cover;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:white}
+.inicio h1{font-size:45px;margin-bottom:20px}
+.inicio p{font-size:19px;margin-bottom:25px;line-height:1.6}
+.boton{display:inline-block;background:#a66b38;color:white;padding:13px 25px;border-radius:5px;text-decoration:none;border:none;cursor:pointer}
+.boton:hover{background:#754522}
+section{padding:65px 7%}
+.titulo{text-align:center;color:#57351f;font-size:32px;margin-bottom:15px}
+.descripcion{text-align:center;color:#666;margin-bottom:35px;line-height:1.6}
+.categorias{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:35px}
+.categorias button{padding:12px 22px;border:1px solid #8b603e;background:white;color:#57351f;border-radius:5px;cursor:pointer;font-weight:bold}
+.categorias button:hover,.categorias button.activo{background:#57351f;color:white}
+.productos{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.tarjeta{background:white;border-radius:9px;overflow:hidden;box-shadow:0 3px 12px #00000015;transition:.3s}
+.tarjeta:hover{transform:translateY(-5px)}
+.tarjeta img{width:100%;height:230px;object-fit:cover;display:block}
+.tarjeta-contenido{padding:20px}
+.tarjeta h3{color:#57351f;margin-bottom:10px}
+.tarjeta p{color:#666;line-height:1.5;margin-bottom:15px}
+.tarjeta select{width:100%;padding:11px;margin:8px 0;border:1px solid #ccc;border-radius:5px}
+.precio{font-size:19px;font-weight:bold;color:#754522;margin:10px 0}
+.tarjeta .boton{width:100%;text-align:center;margin-top:8px}
+.galeria{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.galeria img{width:100%;height:230px;object-fit:cover;border-radius:8px}
+.nosotros{background:#eee4d7;text-align:center}
+.nosotros p{max-width:850px;margin:auto;line-height:1.8}
+.carrito{max-width:850px;margin:auto;background:white;padding:25px;border-radius:10px;box-shadow:0 3px 12px #00000015}
+.item-carrito{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid #ddd;flex-wrap:wrap}
+.item-carrito h3{color:#57351f;font-size:16px}
+.controles{display:flex;align-items:center;gap:10px}
+.controles button{padding:6px 12px;border:0;background:#754522;color:white;border-radius:4px;cursor:pointer}
+.eliminar{background:#a83232!important}
+.total{font-size:22px;font-weight:bold;text-align:right;margin-top:20px;color:#57351f}
+.vacio{text-align:center;color:#777;padding:20px}
+.formulario{max-width:650px;margin:auto;background:white;padding:30px;border-radius:10px;box-shadow:0 3px 12px #00000015}
+.formulario input,.formulario select,.formulario textarea{width:100%;padding:13px;margin:10px 0;border:1px solid #ccc;border-radius:5px;font-size:15px}
+.formulario textarea{height:110px;resize:vertical}
+.formulario button{width:100%;font-size:16px}
+.contacto{background:#eee4d7;text-align:center;line-height:2}
+footer{background:#382318;color:white;text-align:center;padding:25px}
+@media(max-width:750px){
+header{justify-content:center;text-align:center}
+nav{justify-content:center}
+.inicio h1{font-size:32px}
+.productos,.galeria{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+.productos,.galeria{grid-template-columns:1fr}
+.item-carrito{align-items:flex-start}
+}
 </style>
 </head>
+
 <body>
-<header><div class="logo">CARPINTERÍA JAVITO</div><nav><a href="#inicio">Inicio</a><a href="#productos">Productos</a><a href="#galeria">Galería</a><a href="#nosotros">Nosotros</a><a href="#pedido">Realizar pedido</a><a href="#contacto">Contacto</a></nav></header>
-<section class="inicio" id="inicio"><div><h1>Bienvenidos a Carpintería JAVITO</h1><p> Creamos muebles de calidad, con diseños únicos y excelentes acabados para tu hogar.</p><a href="#productos" class="boton">Ver nuestros productos</a></div></section>
-<section id="productos"><h2 class="titulo">Nuestros productos</h2><p class="descripcion">Explora nuestras categorías y descubre los diferentes modelos que tenemos disponibles.</p><div class="categorias"><button class="activo" onclick="mostrarProductos('puertas',this)">Puertas</button><button onclick="mostrarProductos('ventanas',this)">Ventanas</button><button onclick="mostrarProductos('roperos',this)">Roperos</button><button onclick="mostrarProductos('camas',this)">Camas</button><button onclick="mostrarProductos('otros',this)">Otros muebles</button></div><div class="productos" id="listaProductos"></div></section>
-<section id="galeria"><h2 class="titulo">Nuestra galería</h2><p class="descripcion">Algunos de los trabajos y diseños de nuestra carpintería.</p><div class="galeria"><img src="imagenes/otros muebles.jpeg" alt="Trabajo de puerta"><img src="imagenes/otros muebles (1).jpeg" alt="Trabajo de ventana"><img src="imagenes/otros muebles (2).jpeg" alt="Trabajo de ropero"><img src="imagenes/otros muebles (3).jpeg" alt="Trabajo de cama"><img src="imagenes/otros muebles (4).jpeg" alt="Otros muebles"><img src="imagenes/xdee.jpeg" alt="Diseño de puerta"></div></section>
-<section class="nosotros" id="nosotros"><h2 class="titulo">Sobre nosotros</h2><p>Carpintería JAVITO es un emprendimiento dedicado a la elaboración de puertas, ventanas, roperos, camas y otros muebles de madera. Trabajamos con dedicación, responsabilidad y creatividad para ofrecer productos que satisfagan las necesidades de nuestros clientes en la ciudad de Villazón.</p></section>
-<section id="pedido"><h2 class="titulo">Realizar un pedido</h2><p class="descripcion">Completa el formulario para consultar por el producto que deseas.</p><form class="formulario" onsubmit="enviarPedido(event)"><input type="text" id="nombre" placeholder="Nombre completo" required><input type="tel" id="telefono" placeholder="Número de teléfono" required><select id="categoria" required><option value="">Selecciona una categoría</option><option>Puertas</option><option>Ventanas</option><option>Roperos</option><option>Camas</option><option>Otros muebles</option></select><input type="text" id="modelo" placeholder="Modelo del producto que deseas" required><textarea id="detalles" placeholder="Escribe las medidas, características o detalles de tu pedido"></textarea><button type="submit" class="boton">Enviar pedido por WhatsApp</button></form></section>
-<section class="contacto" id="contacto"><h2 class="titulo">Contáctanos</h2><p><strong>Carpintería:</strong> JAVITO</p><p><strong>Ubicación:</strong> Villazón, Bolivia</p><p><strong>Teléfono:</strong> 60489688</p><p><strong>Atención:</strong> Consultas y pedidos</p></section><footer><p>© 2026 Carpintería JAVITO - Villazón, Bolivia</p><p>Calidad, creatividad y dedicación en madera.</p></footer>
+
+<header>
+<div class="logo">CARPINTERÍA JAVITO</div>
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#productos">Productos</a>
+<a href="#galeria">Galería</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#carrito">Carrito (<span id="contador">0</span>)</a>
+<a href="#pedido">Realizar pedido</a>
+<a href="#contacto">Contacto</a>
+</nav>
+</header>
+
+<section class="inicio" id="inicio">
+<div>
+<h1>Bienvenidos a Carpintería JAVITO</h1>
+<p>Creamos muebles de calidad, con diseños únicos y excelentes acabados para tu hogar.</p>
+<a href="#productos" class="boton">Ver nuestros productos</a>
+</div>
+</section>
+
+<section id="productos">
+<h2 class="titulo">Nuestros productos</h2>
+<p class="descripcion">Explora nuestras categorías y descubre los diferentes modelos que tenemos disponibles.</p>
+
+<div class="categorias">
+<button class="activo" onclick="mostrarProductos('puertas',this)">Puertas</button>
+<button onclick="mostrarProductos('ventanas',this)">Ventanas</button>
+<button onclick="mostrarProductos('roperos',this)">Roperos</button>
+<button onclick="mostrarProductos('camas',this)">Camas</button>
+<button onclick="mostrarProductos('otros',this)">Otros muebles</button>
+</div>
+
+<div class="productos" id="listaProductos"></div>
+</section>
+
+<section id="carrito">
+<h2 class="titulo">Carrito de compras</h2>
+<p class="descripcion">Revisa los productos que seleccionaste y el total de tu pedido.</p>
+
+<div class="carrito">
+<div id="listaCarrito"></div>
+<div class="total">Total: Bs <span id="total">0</span></div>
+<div style="text-align:center;margin-top:20px">
+<button class="boton" onclick="irAlPedido()">Continuar con el pedido</button>
+<button class="boton" onclick="vaciarCarrito()" style="background:#754522">Vaciar carrito</button>
+</div>
+</div>
+</section>
+
+<section id="galeria">
+<h2 class="titulo">Nuestra galería</h2>
+<p class="descripcion">Algunos de los trabajos y diseños de nuestra carpintería.</p>
+<div class="galeria">
+<img src="imagenes/otros muebles.jpeg" alt="Trabajo de puerta">
+<img src="imagenes/otros muebles (1).jpeg" alt="Trabajo de ventana">
+<img src="imagenes/otros muebles (2).jpeg" alt="Trabajo de ropero">
+<img src="imagenes/otros muebles (3).jpeg" alt="Trabajo de cama">
+<img src="imagenes/otros muebles (4).jpeg" alt="Otros muebles">
+<img src="imagenes/xdee.jpeg" alt="Diseño de puerta">
+</div>
+</section>
+
+<section class="nosotros" id="nosotros">
+<h2 class="titulo">Sobre nosotros</h2>
+<p>Carpintería JAVITO es un emprendimiento dedicado a la elaboración de puertas, ventanas, roperos, camas y otros muebles de madera. Trabajamos con dedicación, responsabilidad y creatividad para ofrecer productos que satisfagan las necesidades de nuestros clientes en la ciudad de Villazón.</p>
+</section>
+
+<section id="pedido">
+<h2 class="titulo">Realizar un pedido</h2>
+<p class="descripcion">Completa tus datos para enviar tu pedido por WhatsApp.</p>
+
+<form class="formulario" onsubmit="enviarPedido(event)">
+<input type="text" id="nombre" placeholder="Nombre completo" required>
+<input type="tel" id="telefono" placeholder="Número de teléfono" required>
+<input type="text" id="direccion" placeholder="Dirección del cliente" required>
+
+<select id="categoria" required>
+<option value="">Selecciona una categoría</option>
+<option>Puertas</option>
+<option>Ventanas</option>
+<option>Roperos</option>
+<option>Camas</option>
+<option>Otros muebles</option>
+</select>
+
+<input type="text" id="modelo" placeholder="Modelo del producto que deseas">
+<textarea id="detalles" placeholder="Escribe las medidas, características o detalles de tu pedido"></textarea>
+
+<button type="submit" class="boton">Enviar pedido por WhatsApp</button>
+</form>
+</section>
+
+<section class="contacto" id="contacto">
+<h2 class="titulo">Contáctanos</h2>
+<p><strong>Carpintería:</strong> JAVITO</p>
+<p><strong>Ubicación:</strong> Villazón, Bolivia</p>
+<p><strong>Teléfono:</strong> 60489688</p>
+<p><strong>Atención:</strong> Consultas y pedidos</p>
+</section>
+
+<footer>
+<p>© 2026 Carpintería JAVITO - Villazón, Bolivia</p>
+<p>Calidad, creatividad y dedicación en madera.</p>
+</footer>
+
 <script>
-const productos={puertas:[{nombre:"Puerta modelo 1",descripcion:"Puerta de madera con diseño elegante.",imagen:"imagenes/puerta con ventana.jpeg"},{nombre:"Puerta modelo 2",descripcion:"Puerta de madera con acabados modernos.",imagen:"imagenes/puerta moderna.jpeg"},{nombre:"Puerta modelo 3",descripcion:"Puerta resistente para el hogar.",imagen:"imagenes/clasica con 6 pameles.jpeg"}],ventanas:[{nombre:"Ventana modelo 1",descripcion:"Ventana de madera con diseño clásico.",imagen:"imagenes/ventaa.jpeg"},{nombre:"Ventana modelo 2",descripcion:"Ventana con acabados modernos.",imagen:"imagenes/ventana1.jpeg"},{nombre:"Ventana modelo 3",descripcion:"Ventana de madera para el hogar.",imagen:"imagenes/xde.jpeg"}],roperos:[{nombre:"Ropero modelo 1",descripcion:"Ropero de madera con amplio espacio.",imagen:"imagenes/ropero1.jpeg"},{nombre:"Ropero modelo 2",descripcion:"Ropero con diseño moderno.",imagen:"imagenes/ropero2.jpeg"},{nombre:"Ropero modelo 3",descripcion:"Ropero práctico y elegante.",imagen:"imagenes/ropero 3.jpeg"}],camas:[{nombre:"Cama modelo 1",descripcion:"Cama de madera resistente.",imagen:"imagenes/venta (7).jpeg"},{nombre:"Cama modelo 2",descripcion:"Cama con diseño moderno.",imagen:"imagenes/cama2.jpeg"},{nombre:"Cama modelo 3",descripcion:"Cama elegante para dormitorio.",imagen:"imagenes/venta (8).jpeg"}],otros:[{nombre:"Mueble modelo 1",descripcion:"Mueble de madera para el hogar.",imagen:"imagenes/venta (10).jpeg"},{nombre:"Mueble modelo 2",descripcion:"Diseño práctico y decorativo.",imagen:"imagenes/venta (11).jpeg"},{nombre:"Mueble modelo 3",descripcion:"Mueble elaborado con buenos acabados.",imagen:"imagenes/venta (12).jpeg"}]};
-function mostrarProductos(categoria,boton){const lista=document.getElementById("listaProductos");lista.innerHTML="";productos[categoria].forEach(producto=>{lista.innerHTML+=`<div class="tarjeta"><img src="${producto.imagen}" alt="${producto.nombre}"><div class="tarjeta-contenido"><h3>${producto.nombre}</h3><p>${producto.descripcion}</p><button class="boton" onclick="seleccionarProducto('${producto.nombre}','${categoria}')">Consultar producto</button></div></div>`});document.querySelectorAll(".categorias button").forEach(b=>b.classList.remove("activo"));boton.classList.add("activo")}
-function seleccionarProducto(nombre,categoria){document.getElementById("categoria").value=categoria==="otros"?"Otros muebles":categoria.charAt(0).toUpperCase()+categoria.slice(1);document.getElementById("modelo").value=nombre;document.getElementById("pedido").scrollIntoView({behavior:"smooth"})}
-function enviarPedido(event){event.preventDefault();const nombre=document.getElementById("nombre").value;const telefono=document.getElementById("telefono").value;const categoria=document.getElementById("categoria").value;const modelo=document.getElementById("modelo").value;const detalles=document.getElementById("detalles").value;const mensaje="Hola, quiero realizar un pedido en Carpintería JAVITO.%0A"+"Nombre: "+nombre+"%0A"+"Teléfono: "+telefono+"%0A"+"Categoría: "+categoria+"%0A"+"Producto: "+modelo+"%0A"+"Detalles: "+detalles;const numero="59163683804";window.open("https://wa.me/"+numero+"?text="+mensaje,"_blank")}
+const productos={
+puertas:[
+{nombre:"Puerta modelo 1",descripcion:"Puerta de madera con diseño elegante.",imagen:"imagenes/puerta con ventana.jpeg"},
+{nombre:"Puerta modelo 2",descripcion:"Puerta de madera con acabados modernos.",imagen:"imagenes/puerta moderna.jpeg"},
+{nombre:"Puerta modelo 3",descripcion:"Puerta resistente para el hogar.",imagen:"imagenes/clasica con 6 pameles.jpeg"}
+],
+ventanas:[
+{nombre:"Ventana modelo 1",descripcion:"Ventana de madera con diseño clásico.",imagen:"imagenes/ventaa.jpeg"},
+{nombre:"Ventana modelo 2",descripcion:"Ventana con acabados modernos.",imagen:"imagenes/ventana1.jpeg"},
+{nombre:"Ventana modelo 3",descripcion:"Ventana de madera para el hogar.",imagen:"imagenes/xde.jpeg"}
+],
+roperos:[
+{nombre:"Ropero modelo 1",descripcion:"Ropero de madera con amplio espacio.",imagen:"imagenes/ropero1.jpeg"},
+{nombre:"Ropero modelo 2",descripcion:"Ropero con diseño moderno.",imagen:"imagenes/ropero2.jpeg"},
+{nombre:"Ropero modelo 3",descripcion:"Ropero práctico y elegante.",imagen:"imagenes/ropero 3.jpeg"}
+],
+camas:[
+{nombre:"Cama modelo 1",descripcion:"Cama de madera resistente.",imagen:"imagenes/venta (7).jpeg"},
+{nombre:"Cama modelo 2",descripcion:"Cama con diseño moderno.",imagen:"imagenes/cama2.jpeg"},
+{nombre:"Cama modelo 3",descripcion:"Cama elegante para dormitorio.",imagen:"imagenes/venta (8).jpeg"}
+],
+otros:[
+{nombre:"Mueble modelo 1",descripcion:"Mueble de madera para el hogar.",imagen:"imagenes/venta (10).jpeg"},
+{nombre:"Mueble modelo 2",descripcion:"Diseño práctico y decorativo.",imagen:"imagenes/venta (11).jpeg"},
+{nombre:"Mueble modelo 3",descripcion:"Mueble elaborado con buenos acabados.",imagen:"imagenes/venta (12).jpeg"}
+]
+};
+
+const precios={
+puertas:[
+{medida:"2.00 m x 80 cm - Opción 1",precio:1900},
+{medida:"2.00 m x 80 cm - Opción 2",precio:1800},
+{medida:"2.00 m x 1.20 m",precio:2700},
+{medida:"2.20 m x 1.20 m",precio:2900}
+],
+ventanas:[
+{medida:"100 x 100 cm",precio:750},
+{medida:"120 x 100 cm",precio:900},
+{medida:"150 x 100 cm",precio:1150},
+{medida:"200 x 100 cm",precio:1600}
+]
+};
+
+let carrito=[];
+
+try{
+carrito=JSON.parse(localStorage.getItem("javitoCarrito")||"[]");
+if(!Array.isArray(carrito))carrito=[];
+}catch(e){carrito=[];}
+
+function formatoPrecio(valor){
+return Number(valor).toLocaleString("es-BO");
+}
+
+function mostrarProductos(categoria,boton){
+const lista=document.getElementById("listaProductos");
+lista.innerHTML="";
+
+productos[categoria].forEach((producto,index)=>{
+let opciones="";
+let precioHTML="";
+
+if(precios[categoria]){
+opciones=`
+<select id="medida-${categoria}-${index}" onchange="actualizarPrecio('${categoria}',${index})">
+${precios[categoria].map((p,i)=>`<option value="${i}">${p.medida}</option>`).join("")}
+</select>`;
+
+precioHTML=`<div class="precio" id="precio-${categoria}-${index}">Precio: Bs ${formatoPrecio(precios[categoria][0].precio)}</div>`;
+}else{
+precioHTML=`<div class="precio">Precio a consultar</div>`;
+}
+
+let botonHTML=precios[categoria]
+?`<button class="boton" onclick="agregarCarrito('${categoria}',${index})">Agregar al carrito</button>`
+:`<button class="boton" onclick="consultarProducto('${categoria}',${index})">Consultar producto</button>`;
+
+lista.innerHTML+=`
+<div class="tarjeta">
+<img src="${producto.imagen}" alt="${producto.nombre}">
+<div class="tarjeta-contenido">
+<h3>${producto.nombre}</h3>
+<p>${producto.descripcion}</p>
+${opciones}
+${precioHTML}
+${botonHTML}
+</div>
+</div>`;
+});
+
+document.querySelectorAll(".categorias button").forEach(b=>b.classList.remove("activo"));
+if(boton)boton.classList.add("activo");
+}
+
+function actualizarPrecio(categoria,index){
+const seleccion=document.getElementById(`medida-${categoria}-${index}`);
+const opcion=precios[categoria][Number(seleccion.value)];
+document.getElementById(`precio-${categoria}-${index}`).textContent="Precio: Bs "+formatoPrecio(opcion.precio);
+}
+
+function agregarCarrito(categoria,index){
+const producto=productos[categoria][index];
+const seleccion=document.getElementById(`medida-${categoria}-${index}`);
+const opcion=precios[categoria][Number(seleccion.value)];
+
+const existente=carrito.find(item=>
+item.nombre===producto.nombre&&item.medida===opcion.medida
+);
+
+if(existente){
+existente.cantidad++;
+}else{
+carrito.push({
+nombre:producto.nombre,
+medida:opcion.medida,
+precio:opcion.precio,
+cantidad:1
+});
+}
+
+guardarCarrito();
+alert("Producto agregado al carrito.");
+}
+
+function guardarCarrito(){
+localStorage.setItem("javitoCarrito",JSON.stringify(carrito));
+mostrarCarrito();
+}
+
+function mostrarCarrito(){
+const lista=document.getElementById("listaCarrito");
+const totalElemento=document.getElementById("total");
+const contador=document.getElementById("contador");
+
+lista.innerHTML="";
+let total=0;
+let cantidadTotal=0;
+
+if(carrito.length===0){
+lista.innerHTML='<p class="vacio">Tu carrito está vacío.</p>';
+}
+
+carrito.forEach((item,index)=>{
+const subtotal=item.precio*item.cantidad;
+total+=subtotal;
+cantidadTotal+=item.cantidad;
+
+lista.innerHTML+=`
+<div class="item-carrito">
+<div>
+<h3>${item.nombre}</h3>
+<p>${item.medida}</p>
+<p>Precio: Bs ${formatoPrecio(item.precio)}</p>
+<p>Subtotal: Bs ${formatoPrecio(subtotal)}</p>
+</div>
+<div class="controles">
+<button onclick="cambiarCantidad(${index},-1)">−</button>
+<strong>${item.cantidad}</strong>
+<button onclick="cambiarCantidad(${index},1)">+</button>
+<button class="eliminar" onclick="eliminarProducto(${index})">Eliminar</button>
+</div>
+</div>`;
+});
+
+totalElemento.textContent=formatoPrecio(total);
+contador.textContent=cantidadTotal;
+}
+
+function cambiarCantidad(index,cambio){
+carrito[index].cantidad+=cambio;
+if(carrito[index].cantidad<=0){
+carrito.splice(index,1);
+}
+guardarCarrito();
+}
+
+function eliminarProducto(index){
+carrito.splice(index,1);
+guardarCarrito();
+}
+
+function vaciarCarrito(){
+if(confirm("¿Deseas vaciar todo el carrito?")){
+carrito=[];
+guardarCarrito();
+}
+}
+
+function consultarProducto(categoria,index){
+const producto=productos[categoria][index];
+document.getElementById("categoria").value=
+categoria==="otros"?"Otros muebles":categoria.charAt(0).toUpperCase()+categoria.slice(1);
+document.getElementById("modelo").value=producto.nombre;
+document.getElementById("pedido").scrollIntoView({behavior:"smooth"});
+}
+
+function irAlPedido(){
+document.getElementById("pedido").scrollIntoView({behavior:"smooth"});
+}
+
+function enviarPedido(event){
+event.preventDefault();
+
+const nombre=document.getElementById("nombre").value;
+const telefono=document.getElementById("telefono").value;
+const direccion=document.getElementById("direccion").value;
+const categoria=document.getElementById("categoria").value;
+const modelo=document.getElementById("modelo").value;
+const detalles=document.getElementById("detalles").value;
+
+let mensaje="Hola, quiero realizar un pedido en Carpintería JAVITO.\n";
+mensaje+="Nombre: "+nombre+"\n";
+mensaje+="Teléfono: "+telefono+"\n";
+mensaje+="Dirección: "+direccion+"\n";
+
+if(carrito.length>0){
+mensaje+="\nPRODUCTOS DEL CARRITO:\n";
+let total=0;
+
+carrito.forEach(item=>{
+const subtotal=item.precio*item.cantidad;
+total+=subtotal;
+mensaje+=
+"- "+item.nombre+
+"\nMedida: "+item.medida+
+"\nCantidad: "+item.cantidad+
+"\nPrecio unitario: Bs "+item.precio+
+"\nSubtotal: Bs "+subtotal+"\n\n";
+});
+
+mensaje+="TOTAL: Bs "+total+"\n";
+}else{
+mensaje+="Categoría: "+categoria+"\n";
+mensaje+="Producto: "+modelo+"\n";
+}
+
+mensaje+="Detalles: "+detalles;
+
+const numero="59163683804";
+const enlace="https://wa.me/"+numero+"?text="+encodeURIComponent(mensaje);
+
+window.open(enlace,"_blank");
+}
+
 mostrarProductos("puertas",document.querySelector(".categorias button"));
+mostrarCarrito();
 </script>
+
 </body>
 </html>

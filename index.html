@@ -144,7 +144,7 @@ nav{justify-content:center}
 <input type="tel" id="telefono" placeholder="Número de teléfono" required>
 <input type="text" id="direccion" placeholder="Dirección del cliente" required>
 
-<select id="categoria" required>
+<select id="categoria">
 <option value="">Selecciona una categoría</option>
 <option>Puertas</option>
 <option>Ventanas</option>
@@ -155,6 +155,12 @@ nav{justify-content:center}
 
 <input type="text" id="modelo" placeholder="Modelo del producto que deseas">
 <textarea id="detalles" placeholder="Escribe las medidas, características o detalles de tu pedido"></textarea>
+
+<h3 style="color:#57351f;margin:20px 0 10px">Productos seleccionados</h3>
+
+<div id="resumenPedido" style="background:#f5eee7;padding:15px;border-radius:8px;margin-bottom:20px">
+<p class="vacio">Todavía no seleccionaste productos.</p>
+</div>
 
 <button type="submit" class="boton">Enviar pedido por WhatsApp</button>
 </form>
@@ -340,6 +346,41 @@ lista.innerHTML+=`
 
 totalElemento.textContent=formatoPrecio(total);
 contador.textContent=cantidadTotal;
+actualizarResumenPedido();
+}
+
+function actualizarResumenPedido(){
+const resumen=document.getElementById("resumenPedido");
+if(!resumen)return;
+
+if(carrito.length===0){
+resumen.innerHTML='<p class="vacio">Todavía no seleccionaste productos.</p>';
+return;
+}
+
+let total=0;
+let contenido="";
+
+carrito.forEach(item=>{
+const subtotal=item.precio*item.cantidad;
+total+=subtotal;
+
+contenido+=`
+<div style="border-bottom:1px solid #ddd;padding:12px 0">
+<strong>${item.nombre}</strong>
+<p>Medida: ${item.medida}</p>
+<p>Cantidad: ${item.cantidad}</p>
+<p>Precio unitario: Bs ${formatoPrecio(item.precio)}</p>
+<p>Subtotal: Bs ${formatoPrecio(subtotal)}</p>
+</div>`;
+});
+
+contenido+=`
+<h3 style="text-align:right;color:#754522;margin-top:15px">
+Total: Bs ${formatoPrecio(total)}
+</h3>`;
+
+resumen.innerHTML=contenido;
 }
 
 function cambiarCantidad(index,cambio){
@@ -377,6 +418,11 @@ document.getElementById("pedido").scrollIntoView({behavior:"smooth"});
 function enviarPedido(event){
 event.preventDefault();
 
+if(carrito.length===0 && !document.getElementById("modelo").value.trim()){
+alert("Agrega productos al carrito o escribe el modelo que deseas.");
+return;
+}
+
 const nombre=document.getElementById("nombre").value;
 const telefono=document.getElementById("telefono").value;
 const direccion=document.getElementById("direccion").value;
@@ -396,21 +442,20 @@ let total=0;
 carrito.forEach(item=>{
 const subtotal=item.precio*item.cantidad;
 total+=subtotal;
-mensaje+=
-"- "+item.nombre+
+mensaje+="- "+item.nombre+
 "\nMedida: "+item.medida+
 "\nCantidad: "+item.cantidad+
-"\nPrecio unitario: Bs "+item.precio+
-"\nSubtotal: Bs "+subtotal+"\n\n";
+"\nPrecio unitario: Bs "+formatoPrecio(item.precio)+
+"\nSubtotal: Bs "+formatoPrecio(subtotal)+"\n\n";
 });
 
-mensaje+="TOTAL: Bs "+total+"\n";
+mensaje+="TOTAL: Bs "+formatoPrecio(total)+"\n";
 }else{
 mensaje+="Categoría: "+categoria+"\n";
 mensaje+="Producto: "+modelo+"\n";
 }
 
-mensaje+="Detalles: "+detalles;
+if(detalles.trim())mensaje+="Detalles: "+detalles;
 
 const numero="59163683804";
 const enlace="https://wa.me/"+numero+"?text="+encodeURIComponent(mensaje);
